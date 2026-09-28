@@ -1,0 +1,1037 @@
+{
+  "referenceUrl": "https://4kwbfu2sw743y.aiforce.cloud/app/app_17dv1zs9tfc/",
+  "dataIdentical": true,
+  "applicationScriptsIdentical": true,
+  "stylesIdentical": true,
+  "dataGzipSha256": "5d926b94541795640ff545787364cd18c96e1ef9fef2787e039031263ab68ccd",
+  "totalJobs": 218717,
+  "jobsWithInterviewScore": 91937,
+  "counts": [
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "上海",
+      "jobs": 333
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "云南",
+      "jobs": 706
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "内蒙古",
+      "jobs": 638
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "北京",
+      "jobs": 971
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "吉林",
+      "jobs": 393
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "四川",
+      "jobs": 895
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "天津",
+      "jobs": 266
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "宁夏",
+      "jobs": 136
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "安徽",
+      "jobs": 439
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "山东",
+      "jobs": 976
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "山西",
+      "jobs": 497
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "广东",
+      "jobs": 1118
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "广西",
+      "jobs": 601
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "新疆",
+      "jobs": 496
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "江苏",
+      "jobs": 763
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "江西",
+      "jobs": 414
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "河北",
+      "jobs": 608
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "河南",
+      "jobs": 696
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "浙江",
+      "jobs": 779
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "海南",
+      "jobs": 192
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "湖北",
+      "jobs": 710
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "湖南",
+      "jobs": 509
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "甘肃",
+      "jobs": 350
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "福建",
+      "jobs": 590
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "西藏",
+      "jobs": 125
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "贵州",
+      "jobs": 364
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "辽宁",
+      "jobs": 713
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "重庆",
+      "jobs": 276
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "陕西",
+      "jobs": 346
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "青海",
+      "jobs": 284
+    },
+    {
+      "year": "2022",
+      "exam": "国考",
+      "province": "黑龙江",
+      "jobs": 561
+    },
+    {
+      "year": "2022",
+      "exam": "省考",
+      "province": "广东",
+      "jobs": 9639
+    },
+    {
+      "year": "2022",
+      "exam": "省考",
+      "province": "河南",
+      "jobs": 4821
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "上海",
+      "jobs": 348
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "云南",
+      "jobs": 768
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "内蒙古",
+      "jobs": 593
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "北京",
+      "jobs": 972
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "吉林",
+      "jobs": 419
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "四川",
+      "jobs": 1002
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "天津",
+      "jobs": 249
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "宁夏",
+      "jobs": 152
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "安徽",
+      "jobs": 505
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "山东",
+      "jobs": 1046
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "山西",
+      "jobs": 492
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "广东",
+      "jobs": 1100
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "广西",
+      "jobs": 638
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "新疆",
+      "jobs": 572
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "江苏",
+      "jobs": 821
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "江西",
+      "jobs": 418
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "河北",
+      "jobs": 651
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "河南",
+      "jobs": 797
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "浙江",
+      "jobs": 798
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "海南",
+      "jobs": 228
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "湖北",
+      "jobs": 765
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "湖南",
+      "jobs": 594
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "甘肃",
+      "jobs": 353
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "福建",
+      "jobs": 663
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "西藏",
+      "jobs": 149
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "贵州",
+      "jobs": 328
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "辽宁",
+      "jobs": 725
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "重庆",
+      "jobs": 303
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "陕西",
+      "jobs": 480
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "青海",
+      "jobs": 257
+    },
+    {
+      "year": "2023",
+      "exam": "国考",
+      "province": "黑龙江",
+      "jobs": 469
+    },
+    {
+      "year": "2023",
+      "exam": "省考",
+      "province": "广东",
+      "jobs": 11875
+    },
+    {
+      "year": "2023",
+      "exam": "省考",
+      "province": "江苏",
+      "jobs": 7036
+    },
+    {
+      "year": "2023",
+      "exam": "省考",
+      "province": "河南",
+      "jobs": 5351
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "上海",
+      "jobs": 364
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "云南",
+      "jobs": 924
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "内蒙古",
+      "jobs": 631
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "北京",
+      "jobs": 809
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "吉林",
+      "jobs": 494
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "四川",
+      "jobs": 814
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "天津",
+      "jobs": 299
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "宁夏",
+      "jobs": 164
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "安徽",
+      "jobs": 559
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "山东",
+      "jobs": 1095
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "山西",
+      "jobs": 533
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "广东",
+      "jobs": 1327
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "广西",
+      "jobs": 624
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "新疆",
+      "jobs": 524
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "江苏",
+      "jobs": 839
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "江西",
+      "jobs": 456
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "河北",
+      "jobs": 774
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "河南",
+      "jobs": 927
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "浙江",
+      "jobs": 803
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "海南",
+      "jobs": 317
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "湖北",
+      "jobs": 768
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "湖南",
+      "jobs": 708
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "甘肃",
+      "jobs": 451
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "福建",
+      "jobs": 672
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "西藏",
+      "jobs": 205
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "贵州",
+      "jobs": 371
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "辽宁",
+      "jobs": 824
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "重庆",
+      "jobs": 340
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "陕西",
+      "jobs": 516
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "青海",
+      "jobs": 280
+    },
+    {
+      "year": "2024",
+      "exam": "国考",
+      "province": "黑龙江",
+      "jobs": 536
+    },
+    {
+      "year": "2024",
+      "exam": "省考",
+      "province": "广东",
+      "jobs": 12179
+    },
+    {
+      "year": "2024",
+      "exam": "省考",
+      "province": "江苏",
+      "jobs": 6676
+    },
+    {
+      "year": "2024",
+      "exam": "省考",
+      "province": "河南",
+      "jobs": 6231
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "上海",
+      "jobs": 437
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "云南",
+      "jobs": 966
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "内蒙古",
+      "jobs": 704
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "北京",
+      "jobs": 937
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "吉林",
+      "jobs": 497
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "四川",
+      "jobs": 888
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "天津",
+      "jobs": 274
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "宁夏",
+      "jobs": 184
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "安徽",
+      "jobs": 543
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "山东",
+      "jobs": 1311
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "山西",
+      "jobs": 502
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "广东",
+      "jobs": 1467
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "广西",
+      "jobs": 715
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "新疆",
+      "jobs": 660
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "江苏",
+      "jobs": 913
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "江西",
+      "jobs": 611
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "河北",
+      "jobs": 933
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "河南",
+      "jobs": 975
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "浙江",
+      "jobs": 844
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "海南",
+      "jobs": 284
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "湖北",
+      "jobs": 855
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "湖南",
+      "jobs": 764
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "甘肃",
+      "jobs": 424
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "福建",
+      "jobs": 752
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "西藏",
+      "jobs": 189
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "贵州",
+      "jobs": 414
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "辽宁",
+      "jobs": 888
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "重庆",
+      "jobs": 351
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "陕西",
+      "jobs": 548
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "青海",
+      "jobs": 269
+    },
+    {
+      "year": "2025",
+      "exam": "国考",
+      "province": "黑龙江",
+      "jobs": 711
+    },
+    {
+      "year": "2025",
+      "exam": "省考",
+      "province": "四川",
+      "jobs": 5690
+    },
+    {
+      "year": "2025",
+      "exam": "省考",
+      "province": "广东",
+      "jobs": 12377
+    },
+    {
+      "year": "2025",
+      "exam": "省考",
+      "province": "江苏",
+      "jobs": 6818
+    },
+    {
+      "year": "2025",
+      "exam": "省考",
+      "province": "河南",
+      "jobs": 7629
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "上海",
+      "jobs": 489
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "云南",
+      "jobs": 1083
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "内蒙古",
+      "jobs": 714
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "北京",
+      "jobs": 747
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "吉林",
+      "jobs": 559
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "四川",
+      "jobs": 981
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "天津",
+      "jobs": 221
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "宁夏",
+      "jobs": 134
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "安徽",
+      "jobs": 551
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "山东",
+      "jobs": 1234
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "山西",
+      "jobs": 547
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "广东",
+      "jobs": 1869
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "广西",
+      "jobs": 748
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "新疆",
+      "jobs": 646
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "江苏",
+      "jobs": 936
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "江西",
+      "jobs": 553
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "河北",
+      "jobs": 1030
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "河南",
+      "jobs": 1117
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "浙江",
+      "jobs": 754
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "海南",
+      "jobs": 235
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "湖北",
+      "jobs": 785
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "湖南",
+      "jobs": 712
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "甘肃",
+      "jobs": 361
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "福建",
+      "jobs": 679
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "西藏",
+      "jobs": 202
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "贵州",
+      "jobs": 323
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "辽宁",
+      "jobs": 814
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "重庆",
+      "jobs": 401
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "陕西",
+      "jobs": 456
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "青海",
+      "jobs": 216
+    },
+    {
+      "year": "2026",
+      "exam": "国考",
+      "province": "黑龙江",
+      "jobs": 617
+    },
+    {
+      "year": "2026",
+      "exam": "省考",
+      "province": "四川",
+      "jobs": 4851
+    },
+    {
+      "year": "2026",
+      "exam": "省考",
+      "province": "广东",
+      "jobs": 9344
+    },
+    {
+      "year": "2026",
+      "exam": "省考",
+      "province": "江苏",
+      "jobs": 5819
+    },
+    {
+      "year": "2026",
+      "exam": "省考",
+      "province": "河南",
+      "jobs": 7509
+    }
+  ]
+}
