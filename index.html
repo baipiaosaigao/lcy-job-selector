@@ -139,6 +139,8 @@ a{color:var(--blue)}
 .job-search:focus-within{border-color:var(--brand)}
 .job-search input{flex:1;min-width:0;border:0;background:transparent;padding:11px 0;font:inherit;font-size:13px;outline:none}
 .job-search button{background:none;color:var(--tx3);font-size:13px;white-space:nowrap;padding:6px 0}
+.candidate-toggle{font-size:12px;color:var(--brand-d);white-space:nowrap;cursor:pointer}
+.candidate-toggle input{accent-color:var(--brand);vertical-align:-1px}
 @media(max-width:640px){.job-search{flex-basis:100%}}
 .ytab{padding:8px 14px;border-radius:8px 8px 0 0;background:#fff;border:1px solid var(--line);border-bottom:2px solid var(--line);font-size:14px;color:var(--tx2);position:relative;font-weight:500}
 .ytab .cnt{font-size:11px;background:var(--brand-l);color:var(--brand-d);border-radius:9px;padding:1px 7px;margin-left:5px;font-weight:700}
@@ -290,7 +292,7 @@ a{color:var(--blue)}
           <div class="ytabs" id="ytabs"></div>
           <div class="job-search" role="search"><input id="jobSearch" type="search" aria-label="在筛选结果中搜索岗位" placeholder="搜索岗位、单位、地区、专业…" autocomplete="off"><button id="jobSearchClear" type="button" aria-label="清空岗位搜索">清空</button></div>
         </div>
-        <div class="list-bar"><span id="listCnt"></span><span id="sortHint" class="sec-sub">默认按匹配度排序</span></div>
+        <div class="list-bar"><span id="listCnt"></span><span style="display:flex;align-items:center;gap:12px"><label class="candidate-toggle"><input id="candidateMode" type="checkbox" checked> 完整专业候选池</label><span id="sortHint" class="sec-sub">默认按匹配度排序</span></span></div>
         <div id="vport"><div id="vcontent"></div></div>
       </div>
     </div>
@@ -566,16 +568,17 @@ function doMatch(profile) {
     var majorM = matchMajor(S(r, F.MAJOR), entries);
     if (!majorM.ok) continue;
     var fresh = r[17];
-    if (fresh && fresh !== 'T' && !freshOk(fresh, y, +profile.grad, profile.isFresh)) continue;
-    if (r[18] && r[18] !== profile.gender) continue;
-    if (!langOk(r[20], +profile.lang)) continue;
-    if (!certOk(r[21], profile.certs || [])) continue;
+    /* 完整候选池模式只把专业/学历匹配作为入池条件；画像限制仍用于评分与详情提醒，避免提前备考时漏掉岗位。 */
+    if (!profile.candidateMode && fresh && fresh !== 'T' && !freshOk(fresh, y, +profile.grad, profile.isFresh)) continue;
+    if (!profile.candidateMode && r[18] && r[18] !== profile.gender) continue;
+    if (!profile.candidateMode && !langOk(r[20], +profile.lang)) continue;
+    if (!profile.candidateMode && !certOk(r[21], profile.certs || [])) continue;
     if (!eduOk(S(r, F.EDU), lvl)) continue;
-    if (!polOk(S(r, F.POL), profile.pol)) continue;
-    if (!grassOk(S(r, F.GRASS), +profile.grass)) continue;
-    if (!projOk(S(r, F.PROJ), profile.projs || [])) continue;
-    if (!houseOk(S(r, F.HREQ), hk, og, S(r, F.PROV), S(r, F.CITY))) continue;
-    if (+profile.age > 35) {
+    if (!profile.candidateMode && !polOk(S(r, F.POL), profile.pol)) continue;
+    if (!profile.candidateMode && !grassOk(S(r, F.GRASS), +profile.grass)) continue;
+    if (!profile.candidateMode && !projOk(S(r, F.PROJ), profile.projs || [])) continue;
+    if (!profile.candidateMode && !houseOk(S(r, F.HREQ), hk, og, S(r, F.PROV), S(r, F.CITY))) continue;
+    if (!profile.candidateMode && +profile.age > 35) {
       var relax = +profile.age <= 40 && lvl >= 3 && fresh && freshOk(fresh, y, +profile.grad, profile.isFresh);
       if (!relax) continue;
     }
@@ -617,7 +620,7 @@ function doMatch(profile) {
       sys: SYS_NAMES[r[22]] || '其他', adm: r[24], inst: r[25], locl: r[23], note: S(r, F.NOTE),
       prov: S(r, F.PROV), city: S(r, F.CITY), cty: S(r, F.CTY), hreq: S(r, F.HREQ),
       paper: S(r, F.PAPER), isP: r[33], apply: r[34], comp: r[35],
-      ivs: (ivs && !isNaN(ivs)) ? ivs : null, fresh: fresh, gender: r[18],
+      ivs: (ivs && !isNaN(ivs)) ? ivs : null, fresh: fresh, gender: r[18], preview: !!profile.candidateMode,
       why: why, plus: plus, minus: minus
     });
   }
@@ -928,6 +931,7 @@ function requestMatch(profile, cb) {
 /* ============ 结果页状态 ============ */
 var STATE = { year: 2026, list: [], stats: {}, filtered: [], profile: null, exam: 'all', stackMode: 'adm' };
 var JOB_QUERY = '';
+var CANDIDATE_MODE = true;
 $('#jobSearch').oninput = function () { JOB_QUERY = this.value; refresh(); };
 $('#jobSearchClear').onclick = function () { JOB_QUERY = ''; $('#jobSearch').value = ''; refresh(); $('#jobSearch').focus(); };
 function matchesJobQuery(p, query) {
@@ -1067,7 +1071,7 @@ function posLoc(p) {
 function rowHtml(p) {
   var favKey = favKeyOf(p);
   var cls = p.s >= 90 ? 's90' : p.s >= 75 ? 's75' : 's60';
-  var lab = p.s >= 90 ? '极高匹配' : p.s >= 75 ? '高匹配' : '基本匹配';
+  var lab = p.preview ? '专业候选' : (p.s >= 90 ? '极高匹配' : p.s >= 75 ? '高匹配' : '基本匹配');
   var admName = { P: '省级单位', M: '市级单位', C: '县级单位' }[p.adm] || '';
   var instName = { ZT: '正厅级', FT: '副厅级', ZC: '正处级', ZK: '正科级', GJ: '股级' }[p.inst] || '';
   var majorBrief = p.mt === 'any' ? '不限专业' : p.major.length > 22 ? p.major.slice(0, 22) + '…' : p.major;
@@ -1090,7 +1094,7 @@ function rowHtml(p) {
 function refresh() {
   applyFilters(); renderTabs(); renderTrend(); renderOpp();
   var n = STATE.filtered.length;
-  $('#listCnt').innerHTML = '共筛选出 <b class="tnum">' + n + '</b> 个岗位<span style="color:#969696">（' + STATE.year + ' 年）</span>';
+  $('#listCnt').innerHTML = '共筛选出 <b class="tnum">' + n + '</b> 个岗位<span style="color:#969696">（' + STATE.year + ' 年）</span>' + (CANDIDATE_MODE ? '<span style="color:var(--gold);font-size:12px">　专业符合，个人限制请查看详情</span>' : '');
   var vc = $('#vcontent');
   if (!n) { vc.innerHTML = '<div class="pos-empty">当前条件下没有符合条件的岗位，试试调整筛选条件或查看其他年份/考试类型</div>'; return; }
   var html = ''; for (var i = 0; i < n; i++) html += rowHtml(STATE.filtered[i]);
@@ -1207,7 +1211,7 @@ function doGo() {
     mode: formState.mode || 'both', grad: +formState.grad, pol: formState.pol, gender: formState.gender,
     age: +formState.age, grass: +formState.grass, projs: formState.projs || [], lang: formState.lang, certs: formState.certs || [],
     household: formState.hk || {}, origin: formState.og || {}, exclude: FILT.sw, examType: STATE.exam,
-    isFresh: formState.isFresh === '1',
+    isFresh: formState.isFresh === '1', candidateMode: CANDIDATE_MODE,
     ub_manual: formState.ub_manual || null, pg_manual: formState.pg_manual || null
   };
   STATE.profile = profile;
@@ -1227,6 +1231,12 @@ function ensureRegionReady(cb) { var t = 0; (function poll() { if (WC.ready()) {
 document.addEventListener('DOMContentLoaded', function () {
   buildForm(); updateFavBadge();
   $('#btnGo').onclick = doGo;
+  $('#candidateMode').onchange = function () {
+    CANDIDATE_MODE = this.checked;
+    if (!STATE.profile) return;
+    var pr = JSON.parse(JSON.stringify(STATE.profile)); pr.candidateMode = CANDIDATE_MODE;
+    requestMatch(pr, function (res) { $('#btnGo').disabled = false; $('#btnGo').textContent = '开始匹配'; STATE.profile = pr; STATE.list = res.list; STATE.stats = res.stats; buildExamTabs(); refresh(); });
+  };
   $('#btnClear').onclick = function () { if (confirm('确定清空已填写的个人画像？')) { localStorage.removeItem(LS_FORM); formState = {}; buildForm(); } };
   $('#navFav').onclick = openFav;
   $('#lnData').onclick = openDataNote;
