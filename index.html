@@ -133,6 +133,13 @@ a{color:var(--blue)}
 .opp-sum{font-size:13.5px;color:var(--tx);background:var(--brand-l);border-radius:8px;padding:10px 12px;margin-top:8px;line-height:1.7}
 .opp-sum b{color:var(--brand-d)}
 .ytabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.results-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.results-tools .ytabs{margin-bottom:0}
+.job-search{display:flex;align-items:center;flex:1;min-width:230px;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:0 10px}
+.job-search:focus-within{border-color:var(--brand)}
+.job-search input{flex:1;min-width:0;border:0;background:transparent;padding:11px 0;font:inherit;font-size:13px;outline:none}
+.job-search button{background:none;color:var(--tx3);font-size:13px;white-space:nowrap;padding:6px 0}
+@media(max-width:640px){.job-search{flex-basis:100%}}
 .ytab{padding:8px 14px;border-radius:8px 8px 0 0;background:#fff;border:1px solid var(--line);border-bottom:2px solid var(--line);font-size:14px;color:var(--tx2);position:relative;font-weight:500}
 .ytab .cnt{font-size:11px;background:var(--brand-l);color:var(--brand-d);border-radius:9px;padding:1px 7px;margin-left:5px;font-weight:700}
 .ytab.on{border-bottom-color:var(--brand);color:var(--brand-d);font-weight:700}
@@ -279,7 +286,10 @@ a{color:var(--blue)}
           <div id="chart"></div>
           <p class="trend-sum" id="trendSum"></p>
         </div>
-        <div class="ytabs" id="ytabs"></div>
+        <div class="results-tools">
+          <div class="ytabs" id="ytabs"></div>
+          <div class="job-search" role="search"><input id="jobSearch" type="search" aria-label="在筛选结果中搜索岗位" placeholder="搜索岗位、单位、地区、专业…" autocomplete="off"><button id="jobSearchClear" type="button" aria-label="清空岗位搜索">清空</button></div>
+        </div>
         <div class="list-bar"><span id="listCnt"></span><span id="sortHint" class="sec-sub">默认按匹配度排序</span></div>
         <div id="vport"><div id="vcontent"></div></div>
       </div>
@@ -917,6 +927,15 @@ function requestMatch(profile, cb) {
 
 /* ============ 结果页状态 ============ */
 var STATE = { year: 2026, list: [], stats: {}, filtered: [], profile: null, exam: 'all', stackMode: 'adm' };
+var JOB_QUERY = '';
+$('#jobSearch').oninput = function () { JOB_QUERY = this.value; refresh(); };
+$('#jobSearchClear').onclick = function () { JOB_QUERY = ''; $('#jobSearch').value = ''; refresh(); $('#jobSearch').focus(); };
+function matchesJobQuery(p, query) {
+  var words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  if (!words.length) return true;
+  var text = [p.pname, p.dept, p.bureau, p.prov, p.city, p.cty, p.major, p.pcode, p.exam, p.edu].join(' ').toLocaleLowerCase();
+  return words.every(function (word) { return text.indexOf(word) !== -1; });
+}
 var FILT = load(LS_FILT) || { sw: {}, inst: '', adm: '', locl: '', reg: { p: '', c: '', n: '' } };
 function buildExamTabs() {
   $('#examTabs').innerHTML = EXAMS.map(function (e) {
@@ -944,7 +963,7 @@ function buildFilters() {
     else refresh();
   };
   $('#ddBox').onchange = function (e) { var s = e.target.closest('[data-dd]'); if (!s) return; FILT[s.dataset.dd] = s.value; save(LS_FILT, FILT); refresh(); };
-  $('#btnReset').onclick = function () { FILT = { sw: {}, inst: '', adm: '', locl: '', reg: { p: '', c: '', n: '' } }; save(LS_FILT, FILT); buildFilters(); refresh(); };
+  $('#btnReset').onclick = function () { JOB_QUERY = ''; $('#jobSearch').value = ''; FILT = { sw: {}, inst: '', adm: '', locl: '', reg: { p: '', c: '', n: '' } }; save(LS_FILT, FILT); buildFilters(); refresh(); };
 }
 function renderRegFilter() {
   var r = FILT.reg || { p: '', c: '', n: '' };
@@ -970,6 +989,7 @@ function applyFilters() {
     if (rp && p.prov !== rp) continue;
     if (rc && p.city !== rc) continue;
     if (rn && p.cty !== rn) continue;
+    if (!matchesJobQuery(p, JOB_QUERY)) continue;
     out.push(p);
   }
   STATE.filtered = out;
