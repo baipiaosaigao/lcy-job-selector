@@ -146,6 +146,7 @@ a{color:var(--blue)}
 .ytab.on .cnt{background:var(--brand);color:#fff}
 .ytab.dis{opacity:.45}
 .list-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:#fff;border:1px solid var(--line);border-radius:10px 10px 0 0;font-size:13px;color:var(--tx2)}
+.year-fresh-filter{display:flex;align-items:center;gap:5px;margin-left:auto;cursor:pointer;color:var(--brand-d);white-space:nowrap}.year-fresh-filter input{accent-color:var(--brand);cursor:pointer}@media(max-width:640px){.list-bar{flex-wrap:wrap}.year-fresh-filter{margin-left:0}}
 .list-bar b{color:var(--brand-d);font-size:15px}
 #vport{height:calc(100vh - 150px);min-height:420px;overflow:auto;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;position:relative}
 @media(max-width:900px){#vport{height:calc(100vh - 220px)}}
@@ -290,7 +291,7 @@ a{color:var(--blue)}
           <div class="ytabs" id="ytabs"></div>
           <div class="job-search" role="search"><input id="jobSearch" type="search" aria-label="在筛选结果中搜索岗位" placeholder="搜索岗位、单位、地区、专业…" autocomplete="off"><button id="jobSearchClear" type="button" aria-label="清空岗位搜索">清空</button></div>
         </div>
-        <div class="list-bar"><span id="listCnt"></span><span id="sortHint" class="sec-sub">默认按匹配度排序</span></div>
+        <div class="list-bar"><span id="listCnt"></span><label class="year-fresh-filter"><input id="yearFreshOnly" type="checkbox"><span id="yearFreshLabel">仅限2026届应届</span></label><span id="sortHint" class="sec-sub">默认按匹配度排序</span></div>
         <div id="vport"><div id="vcontent"></div></div>
       </div>
     </div>
@@ -930,6 +931,13 @@ function requestMatch(profile, cb) {
 
 /* ============ 结果页状态 ============ */
 var STATE = { year: 2026, list: [], stats: {}, filtered: [], profile: null, exam: 'all', stackMode: 'adm' };
+var YEAR_FRESH_ONLY = {};
+$('#yearFreshOnly').onchange = function () { YEAR_FRESH_ONLY[STATE.year] = this.checked; refresh(); };
+function isYearFreshJob(p, year) {
+  if (String(p.fresh) === String(year)) return true;
+  var note = String(p.note || '').replace(/\s/g, '');
+  return new RegExp('(?:限|仅限|面向|招录|招收)[^；;。]{0,12}' + year + '年?届[^；;。]{0,12}毕业生').test(note);
+}
 var JOB_QUERY = '';
 $('#jobSearch').oninput = function () { JOB_QUERY = this.value; refresh(); };
 $('#jobSearchClear').onclick = function () { JOB_QUERY = ''; $('#jobSearch').value = ''; refresh(); $('#jobSearch').focus(); };
@@ -966,7 +974,7 @@ function buildFilters() {
     else refresh();
   };
   $('#ddBox').onchange = function (e) { var s = e.target.closest('[data-dd]'); if (!s) return; FILT[s.dataset.dd] = s.value; save(LS_FILT, FILT); refresh(); };
-  $('#btnReset').onclick = function () { JOB_QUERY = ''; $('#jobSearch').value = ''; FILT = { sw: {}, inst: '', adm: '', locl: '', reg: { p: '', c: '', n: '' } }; save(LS_FILT, FILT); buildFilters(); refresh(); };
+  $('#btnReset').onclick = function () { YEAR_FRESH_ONLY = {}; JOB_QUERY = ''; $('#jobSearch').value = ''; FILT = { sw: {}, inst: '', adm: '', locl: '', reg: { p: '', c: '', n: '' } }; save(LS_FILT, FILT); buildFilters(); refresh(); };
 }
 function renderRegFilter() {
   var r = FILT.reg || { p: '', c: '', n: '' };
@@ -985,6 +993,7 @@ function applyFilters() {
   for (var i = 0; i < L.length; i++) {
     var p = L[i];
     if (p.y !== STATE.year) continue;
+    if (YEAR_FRESH_ONLY[STATE.year] && !isYearFreshJob(p, STATE.year)) continue;
     if (ex !== 'all' && p.ek !== ex) continue;
     if (FILT.inst && p.inst !== FILT.inst) continue;
     if (FILT.adm && p.adm !== FILT.adm) continue;
@@ -1091,6 +1100,8 @@ function rowHtml(p) {
     '<button class="star' + (FAV.has(favKey) ? ' on' : '') + '" data-star="' + esc(favKey) + '">★</button></span></div></div>';
 }
 function refresh() {
+  $('#yearFreshOnly').checked = !!YEAR_FRESH_ONLY[STATE.year];
+  $('#yearFreshLabel').textContent = '仅限' + STATE.year + '届应届';
   applyFilters(); renderTabs(); renderTrend(); renderOpp();
   var n = STATE.filtered.length;
   $('#listCnt').innerHTML = '共筛选出 <b class="tnum">' + n + '</b> 个岗位<span style="color:#969696">（' + STATE.year + ' 年）</span>';
