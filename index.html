@@ -460,6 +460,8 @@ function matchMajor(majorText, entries) {
       if (seg.lv === 'g' && e.level === 'b') continue;
       if (seg.lv === 'b' && e.level === 'g') continue;
       var kind = null;
+      /* 具体专业必须独立命中：岗位文本即使同时带专业代码，也不能因为代码解析而漏掉“人工智能”。 */
+      if (e.name === '人工智能' && seg.body.indexOf('人工智能') >= 0) kind = 'name';
       var re6 = /(?<!\d)(\d{6})(?:TK|KT|T|K)?(?!\d)/g, mm;
       if (e.code6) { while ((mm = re6.exec(seg.body))) { if (mm[1] === e.code6.slice(0, 6)) { kind = 'exact'; break; } } }
       var re4 = /(?<!\d)(\d{4})(?!\d)/g, m4;
